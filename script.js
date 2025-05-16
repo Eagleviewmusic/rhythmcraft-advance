@@ -13,6 +13,9 @@ let interval;
 let soundMode = "drum";
 let selectedPitch = "A2";
 
+// ---- TICK MUTE STATE ----
+let tickMuted = false;
+
 // ---- AUDIO CONTEXT, LAZY INIT ----
 let ctx = null;
 let masterGain = null;
@@ -44,6 +47,11 @@ document.getElementById("tempoInput").addEventListener("change", e => {
     clearInterval(interval);
     startPlaybackLoop();
   }
+});
+
+// ---- HANDLER FOR TICK MUTE CHECKBOX ----
+document.getElementById("tickMute").addEventListener("change", function() {
+  tickMuted = !this.checked;
 });
 
 // ---- SOUND MODE & PITCH SELECTORS ----
@@ -157,7 +165,7 @@ async function playStep() {
   const allGroupEmpty = group.every(c => !c.dataset.permanent);
   const bothPairEmpty = pair.every(c => !c.dataset.permanent);
 
-  if ([0, 4, 8, 12].includes(currentStep)) await playTick();
+  if (!tickMuted && [0, 4, 8, 12].includes(currentStep)) await playTick();
 
   const box = boxes.find(b => b.start === currentStep);
   if (box) {
