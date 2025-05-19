@@ -250,7 +250,7 @@ function clearAll() {
     delete cell.dataset.permanent;
     delete cell.dataset.color;
     const img = cell.parentElement.querySelector(".cell-image");
-    if (img) img.src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0008.png";
+    if (img) img.src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0008.png";
   });
 }
 document.getElementById("clearButton").addEventListener("click", clearAll);
@@ -260,7 +260,7 @@ function updateImageRow() {
   for (let i = 0; i < totalSteps; i++) {
     const wrapper = cells[i].parentElement;
     const img = wrapper.querySelector(".cell-image");
-    img.src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0008.png";
+    img.src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0008.png";
   }
 
   for (let i = 0; i < totalSteps; i++) {
@@ -270,13 +270,13 @@ function updateImageRow() {
 
     if (cell.dataset.permanent) {
       if (cell.dataset.color === "green") {
-        src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0002.png";
+        src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0002.png";
         skip = 3;
       } else if (cell.dataset.color === "orange") {
-        src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0004.png";
+        src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0004.png";
         skip = 1;
       } else if (cell.dataset.color === "purple") {
-        src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0006.png";
+        src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0006.png";
         skip = 0;
       }
     } else {
@@ -284,7 +284,7 @@ function updateImageRow() {
       const group = cells.slice(groupStart, groupStart + 4);
       const allEmpty = group.every(c => !c.dataset.permanent);
       if (allEmpty && i % 4 === 0) {
-        src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0003.png";
+        src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0003.png";
         skip = 3;
       } else {
         const pairStart = i % 2 === 0 ? i : i - 1;
@@ -292,10 +292,10 @@ function updateImageRow() {
         const bothEmpty = pair.every(c => !c.dataset.permanent);
         const oneEmpty = !cell.dataset.permanent && pair.some(c => c.dataset.permanent);
         if (bothEmpty && i % 2 === 0) {
-          src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0005.png";
+          src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0005.png";
           skip = 1;
         } else if (oneEmpty) {
-          src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0007.png";
+          src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0007.png";
           skip = 0;
         }
       }
@@ -309,7 +309,7 @@ function updateImageRow() {
         const nextCell = cells[i + j];
         if (nextCell) {
           const spacerImg = nextCell.parentElement.querySelector(".cell-image");
-          spacerImg.src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0008.png";
+          spacerImg.src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0008.png";
         }
       }
       i += skip;
@@ -323,7 +323,7 @@ for (let i = 0; i < totalSteps; i++) {
   wrapper.classList.add("cell-wrapper");
   const img = document.createElement("img");
   img.className = "cell-image";
-  img.src = "https://raw.githubusercontent.com/VisualMusicalMinds/Cartoon_Notation/refs/heads/main/Cartoon%20Rhythm0008.png";
+  img.src = "https://visualmusicalminds.github.io/images/Cartoon%20Rhythm0008.png";
   wrapper.appendChild(img);
   const div = document.createElement("div");
   div.classList.add("cell");
